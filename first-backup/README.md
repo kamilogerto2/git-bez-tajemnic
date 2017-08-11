@@ -10,6 +10,7 @@ git_bez_tajemnic
 ├── catalog2
 └── sample.txt
 ```
+
 ![Struktura projektu](catalog.png?raw=true "Struktura projektu")
 
 Utworzyliśmy katalog git_bez_tajemnic, a w nim plik tekstowy sample.txt oraz kolejne dwa podkatalogi - catalog1 i catalog2. Wewnątrz folderu catalog1 znajdują się dwa pliki - sample2.txt oraz image.png. Treść plików jest dowolna (ale różna dla plików) - jednak niech to nie będą puste pliki - jest tak dlatego, ponieważ może nam to przysporzyć potem trochę problemów (puste pliki będą interpretowane jako takie same) ;) 
@@ -19,6 +20,7 @@ Zaprezentowana struktura jest standardowym zapisem plików w postaci drzewa jaki
 W przypadku pojedynczych plików sprawa będzie dość prosta - kluczem (a więc nazwą tworzonego pliku) będzie nazwa oryginalnego pliku, wartością jego zawartość. Co jednak w przypadku folderów? Tak samo jak w przypadku plików - będziemy podążać zgodnie z zasadami - kluczem będzie nazwa katalogu, a wartością lista nazw plików, które do niego należą (zawartość pliku jest wylistowana kawałek dalej). Tymczasowo foldery będą zapisane w postaci plików tekstowych.
 
 Po wykonaniu przedstawionych operacji nasz folder objects wygląda następująco:
+
 ![Struktura projektu](catalog2.png?raw=true "Struktura projektu")
 
 Pliki tekstowe oraz plik graficzny nie zmieniły swojej zawartości. W pliku tekstowym git_bez_tajemnic - reprezentującym nasz katalog główny - możemy znaleźć następującą zawartość:
@@ -30,6 +32,7 @@ sample.txt
 ```
 
 Czyli w skrócie zawartość tego katalogu w naszym drzewie projektu. Dla porównania w pliku catalog1 znajdziemy następującą zawartość:
+
 ```
 sample2.txt
 image.png
@@ -62,6 +65,7 @@ Ponadto podczas konwersji plików, po uzyskaniu klucza, będziemy go zapisywali 
 ```
 
 W ten sam sposób będziemy postępowali dla wszystkich plików i katalogów. Nasz katalog objects wygląda teraz w następujący sposób:
+
 ![Struktura projektu](catalog3.png?raw=true "Struktura projektu")
 
 Na chwilę obecną przedstawiliśmy nasz katalog w drugiej alternatywnej wersji listowej, gdzie kluczem jest odpowiedni ciąg znaków przekonwertowany poprzez algorytm SHA-1,  a wartością - zawartość pliku. Znając więc klucz SHA-1 głównego katalogu projektu - mimo zaszyfrowanego nazewnictwa plików jesteśmy w stanie krok po kroku odtworzyć strukturę katalogową naszego projektu.

@@ -10,5 +10,5 @@ Rozpoczynając pracę w IT jednym z najczęstszych wymagań odnośnie kandydata 
 Mówiąc szczerze - to bardzo często wystarcza. Jest jednak jedno małe “ale”. Głęboko wierzę, że wśród czytelników niniejszego artykułu są osoby, które nie tylko chcą wykorzystywać podstawowe funkcjonalności jakiegoś narzędzia, ale także chcą zrozumieć narzędzie z którym pracują. Postaram zapoznać Cię z tym jak działa system kontroli wersji GIT i w jaki sposób przechowuje pliki.  Chciałbym ci pokazać, że to co może wyglądać skomplikowanie, jest takim tylko z pozoru, a pod spodem kryją się dobrze znane nam mechanizmy. Po przeczytaniu tego artykułu może się okazać, że doskonale zrozumiałeś to, z czym pracowałeś przez dobrych parę lat. Spróbujemy na własną rękę “pobawić” się w gita, żeby zrozumieć co nam oferuje mniej lub bardziej znany system GIT.
 
 ## Spis treści
-* Stwórzmy sobie backup
+* ["Stwórzmy sobie backup"](first-backup/README.md)
 * Cykliczny backup danych (czyli nasz pierwszy commit)
