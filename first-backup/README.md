@@ -13,9 +13,9 @@ git_bez_tajemnic
 
 ![Struktura projektu](catalog.png?raw=true "Struktura projektu")
 
-Utworzyliśmy katalog git_bez_tajemnic, a w nim plik tekstowy sample.txt oraz kolejne dwa podkatalogi - catalog1 i catalog2. Wewnątrz folderu catalog1 znajdują się dwa pliki - sample2.txt oraz image.png. Treść plików jest dowolna (ale różna dla plików) - jednak niech to nie będą puste pliki - jest tak dlatego, ponieważ może nam to przysporzyć potem trochę problemów (puste pliki będą interpretowane jako takie same) ;) 
+Utworzyliśmy katalog git_bez_tajemnic, a w nim plik tekstowy sample.txt oraz kolejne dwa podkatalogi - catalog1 i catalog2. Wewnątrz folderu catalog1 znajdują się dwa pliki - sample2.txt oraz image.png. Treść plików jest dowolna (ale różna dla plików) - jednak niech to nie będą puste pliki - ponieważ może nam to przysporzyć potem trochę problemów (puste pliki będą interpretowane jako takie same) ;) 
 
-Zaprezentowana struktura jest standardowym zapisem plików w postaci drzewa jakie znamy z naszych ulubionych systemów operacyjnych. Wyobraźmy sobie jednak sytuację w której to chcielibyśmy mieć poglądową listę wszystkich plików i katalogów  na jednym poziomie, bez konieczności wchodzenia do każdego z podfolderów, ale także, żebym możliwym było jej szybkie przejrzenie i znalezienie interesujących obiektów. Tworzymy więc małą “bazę danych” - będzie to swego rodzaju backup naszych plików. Załóżmy, że kluczem będzie nazwa pliku, a wartością - zawartość pliku. W naszym katalogu stwórzmy folder objects, w którym będziemy zapisywać naszą spłaszczoną listę obiektów. 
+Zaprezentowana struktura jest standardowym zapisem plików w postaci drzewa jakie znamy z naszych ulubionych systemów operacyjnych. Wyobraźmy sobie jednak sytuację w której to chcielibyśmy mieć poglądową listę wszystkich plików i katalogów  na jednym poziomie, bez konieczności wchodzenia do każdego z podfolderów, ale także, żeby możliwym było jej szybkie przejrzenie i znalezienie interesujących obiektów. Tworzymy więc małą “bazę danych” - będzie to swego rodzaju backup naszych plików. Załóżmy, że kluczem będzie nazwa pliku, a wartością - zawartość pliku. W naszym katalogu stwórzmy folder objects, w którym będziemy zapisywać naszą spłaszczoną listę obiektów. 
 
 W przypadku pojedynczych plików sprawa będzie dość prosta - kluczem (a więc nazwą tworzonego pliku) będzie nazwa oryginalnego pliku, wartością jego zawartość. Co jednak w przypadku folderów? Tak samo jak w przypadku plików - będziemy podążać zgodnie z zasadami - kluczem będzie nazwa katalogu, a wartością lista nazw plików, które do niego należą (zawartość pliku jest wylistowana kawałek dalej). Tymczasowo foldery będą zapisane w postaci plików tekstowych.
 
@@ -38,7 +38,7 @@ sample2.txt
 image.png
 ```
 
-Mając taką płaską strukturę obiektów reprezentowaną w postaci klucz-wartość - jesteśmy w stanie w prosty sposób odwzorować naszą strukturę projektu w sposób jaki go stworzyliśmy na początku - idąc plik po pliku i budując drzewo plików i katalogów (zakładamy, że na ten moment znamy plik od którego powinniśmy zacząć analizę - w naszym przypadku git_bez_tajemnic).
+Mając taką płaską strukturę obiektów reprezentowaną w postaci klucz-wartość, jesteśmy w stanie w prosty sposób odwzorować naszą strukturę projektu w sposób jaki go stworzyliśmy na początku - idąc plik po pliku i budując drzewo plików i katalogów (zakładamy, że na ten moment znamy plik od którego powinniśmy zacząć analizę - w naszym przypadku git_bez_tajemnic).
      
 Przy tworzeniu takiej struktury plików może pojawić się problem duplikujących się plików - ot na przykład index.php, który pojawia się parę razy w katalogu wordpressa. Co wtedy? Standardowo system będzie chciał nadpisać zmiany - to nas jednak nie urządza. Wypadałoby wymyślić jakiś system kluczy. Użyjemy do tego funkcji hashującej SHA-1. Stwórzmy sobie szablon według którego będziemy tworzyć nasze klucze. Niech wygląda tak:
 
@@ -49,8 +49,9 @@ Przy tworzeniu takiej struktury plików może pojawić się problem duplikujący
 W naszym szablonie użyto trzech składowych - type, size, content. Type to nic innego jak typ obiektu, który tworzymy. Uznajmy, że wszelkie pliki - tekstowe, graficzne będą typu ‘blob’ (o tym czym jest blob będzie trochę później). Drugim typem obiektów będą nasze katalogi - nazwijmy je ‘tree’ czyli drzewami. Size to rozmiar obiektu, który zapisujemy, a content to zawartość naszego pliku.
 
 Mając więc plik tekstowy o zawartości ‘text’ będzie to na przykład:
+
 ```
-blob 4\000test
+blob 4\0test
 ```
 
 Na takim ciągu znaków wykonujemy operacje hashowania (można skorzystać na przykład z konwertera online, np. http://www.sha1-online.com/ ) SHA-1 i otrzymujemy czterdziesto znakowy klucz:
@@ -59,8 +60,8 @@ Na takim ciągu znaków wykonujemy operacje hashowania (można skorzystać na pr
 Ponadto podczas konwersji plików, po uzyskaniu klucza, będziemy go zapisywali w pliku tekstowym katalogu obok nazwy pliku. Będzie to więc wyglądało następująco:
 
 ```
-591ea0e6b95a5bfb864dab0487ab312d4beff999 catalog1
-591ea0e6b95a5bfb864dab0487ab312d4beff999 catalog2
+30d74d258442c7c65512eafab474568dd706c430 catalog1
+846010cecc82dbe472d14f3ed60f1170b096623c catalog2
 591ea0e6b95a5bfb864dab0487ab312d4beff999 sample.txt
 ```
 
