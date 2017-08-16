@@ -77,6 +77,8 @@ Na koniec tworzenia naszego backupu musimy zwrócić uwagę na jeszcze jedną ba
 
 ![Tworzenie podfolderów](catalog4.png?raw=true "Tworzenie podfolderów")
 
+![Tworzenie podfolderów](catalog5.png?raw=true "Tworzenie podfolderów")
+
 Co uzyskaliśmy na tym etapie?
 
 W naszym katalogu mamy zunifikowaną listę obiektów (blobów)  skompresowanych o nieokreślonym typie (pliki binarne). Ich kluczem jest wartość SHA-1 uzyskana na podstawie ustalonego szablonu przedstawionego powyżej, a zawartość to skompresowana zawartość pliku. Mamy dwa miejsca, gdzie przechowujemy nasze dane - pierwszy niezoptymalizowany zapis w postaci zwykłej struktury katalogowej i drugi zoptymalizowany w postaci spłaszczonej listy klucz-wartość. Z praktycznego punktu widzenia - stworzyliśmy całkiem przyzwoity backup naszych danych (naszego projektu). Całkiem dużo prawda? Skoro nasze drugie źródło danych jest tak bardzo zoptymalizowane - czemu by tego nie wykorzystać? 
