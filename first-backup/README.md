@@ -40,7 +40,7 @@ image.png
 
 Mając taką płaską strukturę obiektów reprezentowaną w postaci klucz-wartość, jesteśmy w stanie w prosty sposób odwzorować naszą strukturę projektu w sposób jaki go stworzyliśmy na początku - idąc plik po pliku i budując drzewo plików i katalogów (zakładamy, że na ten moment znamy plik od którego powinniśmy zacząć analizę - w naszym przypadku git_bez_tajemnic).
      
-Przy tworzeniu takiej struktury plików może pojawić się problem duplikujących się plików - ot na przykład index.php, który pojawia się parę razy w katalogu wordpressa. Co wtedy? Standardowo system będzie chciał nadpisać zmiany - to nas jednak nie urządza. Wypadałoby wymyślić jakiś system kluczy. Użyjemy do tego funkcji hashującej SHA-1 (czym jest hash możesz przeczytać [tutaj](https://en.wikipedia.org/wiki/Hash_function), a czym jest SHA-1 [tutaj] (https://en.wikipedia.org/wiki/SHA-1)). Stwórzmy sobie szablon według którego będziemy tworzyć nasze klucze. Niech wygląda tak:
+Przy tworzeniu takiej struktury plików może pojawić się problem duplikujących się plików - ot na przykład index.php, który pojawia się parę razy w katalogu wordpressa. Co wtedy? Standardowo system będzie chciał nadpisać zmiany - to nas jednak nie urządza. Wypadałoby wymyślić jakiś system kluczy. Użyjemy do tego funkcji hashującej SHA-1 (czym jest hash możesz przeczytać [tutaj](https://en.wikipedia.org/wiki/Hash_function), a czym jest SHA-1 [tutaj](https://en.wikipedia.org/wiki/SHA-1)). Stwórzmy sobie szablon według którego będziemy tworzyć nasze klucze. Niech wygląda tak:
 
 ```
 <type> <size>\0<content>
