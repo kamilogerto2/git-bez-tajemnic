@@ -1,4 +1,4 @@
-# Git bez tajemnic
+# Git bez tajemnic :)
 
 Jakiś czas temu prowadząc szkolenie z systemu kontroli wersji GIT zdałem sobie sprawę, że jest wiele rzeczy, których sam muszę się jeszcze poduczyć i które nie są traktowane priorytetowo podczas nauki wspomnianego systemu. Postanowiłem poszerzyć swój zakres wiedzy o to, jak dokładnie ten system działa i z jakich rozwiązań korzysta. Dziś w przystępny sposób chciałbym pokazać to, co czasem może wyglądać strasznie (na przykład po otwarciu folderu .git naszego projektu, który jest tworzony przy inicjalizacji systemu GIT dla naszego projektu). Jeżeli więc jesteś osobą, która korzysta z GITa, a chciałaby go lepiej zrozumieć lub gdy po prostu chciałbyś się dowiedzieć czym w zasadzie on jest - ten artykuł jest właśnie dla ciebie.
 
